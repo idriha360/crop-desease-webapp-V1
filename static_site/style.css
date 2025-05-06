@@ -3,6 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
+    font-family: 'Public Sans', sans-serif;  /* applies to entire page */
   }
   body {
     background: linear-gradient(
@@ -30,11 +31,17 @@ html, body {
     text-align: center;
   }
   
-  /*— 1) Header: dark green —*/
-  .header-section {
-    background-color: #1d5a17;
-    color: #fff;
-  }
+/*— 1) Header: dark green —*/
+.header-section {
+  background: linear-gradient(to bottom, #1d5a17 0%, #1d5a17 60%, transparent 100%);
+  color: #fff;
+  padding: 40px 20px 80px; /* top 40px, bottom 80px to extend behind upload */
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+
   .header-section .logo-title {
     display: flex;
     align-items: center;
@@ -55,16 +62,30 @@ html, body {
   
   /*— 2) Upload: pale green —*/
   .upload-section {
-    background-color: #eef1d6;
+    background-color: white;
+    padding: 60px 40px;
+    border-radius: 24px;
+    max-width: 550px;
+    margin: -100px auto 0 auto;
+    position: relative;
+    z-index: 20;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); /* ← Stronger shadow */
   }
+
   .upload-box {
+    /* NEW: center & narrow */
+    max-width: 600px;
+    margin: 0 auto;
+  
     border: 2px dashed #bbb;
     padding: 60px;
-    border-radius: 8px;
+    /* NEW: smoother, larger rounding */
+    border-radius: 1rem;
+  
     background: #fff;
     cursor: pointer;
     transition: background 0.2s;
-  }
+  }  
   .upload-box:hover {
     background: #f9f9f9;
   }
@@ -78,52 +99,79 @@ html, body {
   }
   
   /*— 3) How It Works: light olive —*/
-  .howitworks-section {
-    background-color: #edf0d5;
-  }
-  .steps-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  .step {
-    flex: 1 1 160px;
-    background: #fff;
-    border-radius: 8px;
-    padding: 20px 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  }
-  .step-icon {
-    height: 80px;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .step-icon img {
-    max-height: 100%;
-    max-width: 100%;
-  }
-  .step h3 {
-    margin: 8px 0;
-    font-size: 1.2rem;
-  }
-  .step p {
-    font-size: 0.95rem;
-    color: #555;
-  }
-  
-  /*— 4) Testimonial: pale moss —*/
-  .testimonial-section {
-    background-color: #dbe5c2;
-  }
-  .testimonial-section blockquote {
-    font-style: italic;
-    color: #444;
-    margin: 0 auto;
-    max-width: 600px;
-    line-height: 1.4;
-  }
-  
+/* pull the olive background up behind the bottom half of the upload card */
+.howitworks-section {
+  margin-top: -40px; /* Overlap upward */
+  padding-top: 120px;
+  background-color: #edf0d5;
+  color: #1b5218;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Make the section title bigger */
+.howitworks-section h2 {
+  font-size: 2.5rem;       /* up from ~2rem—adjust as needed */
+  margin-bottom: 1rem;
+  color: #1b5218;          /* keep your dark-green text */
+}
+
+.steps-container {
+  display: flex;
+  justify-content: center; /* center the four steps */
+  flex-wrap: nowrap;       /* keep in one row on wide viewports */
+  gap: 20px;               /* space between steps */
+  margin-bottom: 20px;
+}
+
+.step {
+  flex: 1 1 150px;         /* allow steps to shrink/grow equally, min 150px */
+  max-width: 200px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.step-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #d8e4c0;  /* logo background only */
+  border-radius: 12px;
+  margin: 0 auto 12px;       /* center icon and add bottom gap */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-icon img {
+  width: 40px;
+  height: 40px;              /* adjust as needed for consistent padding */
+}
+
+.step h3 {
+  margin: 8px 0;
+  font-size: 1.2rem;
+  color: #1b5218;             /* override default text color */
+}
+
+.step p {
+  font-size: 0.95rem;
+  color: #1b5218;             /* override default text color */
+}
+
+/*— 4) Testimonial: pale moss —*/
+.testimonial-section {
+  background-color: #dbe5c2;  /* restore the pale moss background */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.testimonial-section blockquote {
+  font-style: italic;
+  color: #444;
+  margin: 0 auto;
+  max-width: 600px;
+  line-height: 1.4;
+}

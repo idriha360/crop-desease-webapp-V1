@@ -11,7 +11,7 @@ from model.model_utils import load_model, predict_image
 
 # ——— Configuration ———
 BASE_DIR   = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, 'model', 'best_val_acc_model.pth')
+MODEL_PATH = os.path.join(BASE_DIR, 'model', 'best_val_acc_model_V2.pth')
 DEVICE     = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # Your 38 classes in exactly the trained order:
