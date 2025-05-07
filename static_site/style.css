@@ -1,177 +1,735 @@
-/*— reset & full-page, non-repeating gradient —*/
+/* --- Global Reset & Base Styles --- */
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Public Sans', sans-serif;  /* applies to entire page */
-  }
-  body {
-    background: linear-gradient(
-      0deg,
-      rgba(87, 235, 222, 1)   0%,
-      rgba(174, 251, 42, 1)    100%
-    ) no-repeat center center fixed;
-    background-size: cover;
-    font-family: Arial, sans-serif;
-    color: #333;
-  }
-  
-  /*— the single floating card container —*/
-  .main-card {
-    max-width: 800px;
-    margin: 40px auto;               /* centers with space above/below */
-    border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    overflow: hidden;                /* so section corners sit flush */
-  }
-  
-  /*— shared section styling (no background here!) —*/
-  .section {
-    padding: 40px 20px;
-    text-align: center;
-  }
-  
-/*— 1) Header: dark green —*/
-.header-section {
-  background: linear-gradient(to bottom, #1d5a17 0%, #1d5a17 60%, transparent 100%);
-  color: #fff;
-  padding: 40px 20px 80px; /* top 40px, bottom 80px to extend behind upload */
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+body {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background-color: #2A5A25;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* --- Animated Waves Background --- */
+.waves-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+  overflow: hidden;
+}
+
+.waves-background .wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300%;
+  background-repeat: repeat-x;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#wave1 {
+  height: 950px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 180'%3E%3Cpath d='M0,100 C200,0 300,200 500,100 S700,0 1000,100 V180 H0 Z' fill='%235D9F53'/%3E%3C/svg%3E");
+  background-size: 1000px 950px;
+  animation-name: animateWave1Keyframe;
+  animation-duration: 60s;
+  opacity: 0.25;
+  bottom: -300px;
+}
+#wave2 {
+  height: 850px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 150'%3E%3Cpath d='M0,80 C250,150 350,10 600,80 S850,150 1200,80 V150 H0 Z' fill='%234A8A42'/%3E%3C/svg%3E");
+  background-size: 1200px 850px;
+  animation-name: animateWave2Keyframe;
+  animation-duration: 45s;
+  animation-direction: reverse;
+  opacity: 0.35;
+  bottom: -250px;
+}
+#wave3 {
+  height: 750px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 120'%3E%3Cpath d='M0,70 C150,120 250,20 400,70 S550,120 800,70 V120 H0 Z' fill='%23377431'/%3E%3C/svg%3E");
+  background-size: 800px 750px;
+  animation-name: animateWave3Keyframe;
+  animation-duration: 30s;
+  opacity: 0.5;
+  bottom: -200px;
+}
+
+@keyframes animateWave1Keyframe {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-1000px); }
+}
+@keyframes animateWave2Keyframe {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-1200px); }
+}
+@keyframes animateWave3Keyframe {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-800px); }
+}
+
+.page-container {
+  max-width: 100%;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
-
-  .header-section .logo-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-  }
-  .header-section .logo {
-    width: 60px;
-  }
-  .header-section .site-title {
-    font-size: 2.5rem;
-    margin: 0;
-  }
-  .header-section .site-description {
-    margin-top: 8px;
-    font-size: 1.1rem;
-  }
-  
-  /*— 2) Upload: pale green —*/
-  .upload-section {
-    background-color: white;
-    padding: 60px 40px;
-    border-radius: 24px;
-    max-width: 550px;
-    margin: -100px auto 0 auto;
-    position: relative;
-    z-index: 20;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25); /* ← Stronger shadow */
-  }
-
-  .upload-box {
-    /* NEW: center & narrow */
-    max-width: 600px;
-    margin: 0 auto;
-  
-    border: 2px dashed #bbb;
-    padding: 60px;
-    /* NEW: smoother, larger rounding */
-    border-radius: 1rem;
-  
-    background: #fff;
-    cursor: pointer;
-    transition: background 0.2s;
-  }  
-  .upload-box:hover {
-    background: #f9f9f9;
-  }
-  .upload-box button {
-    background: #1d5a17;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  /*— 3) How It Works: light olive —*/
-/* pull the olive background up behind the bottom half of the upload card */
-.howitworks-section {
-  margin-top: -40px; /* Overlap upward */
-  padding-top: 120px;
-  background-color: #edf0d5;
-  color: #1b5218;
-  text-align: center;
+/* --- Main Content Wrapper (Overall Card with Gradient & Texture) --- */
+.main-content-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 24px;
+  padding: 0;
+  overflow: hidden;
   position: relative;
-  z-index: 10;
+  z-index: 2;
+  color: #1A4D2E;
+
+  background-image:
+    linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02)),
+    linear-gradient(-45deg, rgba(0,0,0,0.01) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.01) 75%, rgba(0,0,0,0.01)),
+    linear-gradient(to bottom,
+      #1E5B18 0%,
+      #1E5B18 20%,
+      #4A7842 30%,
+      #edf0d5 50%,
+      #dce6c3 100%
+    );
+  background-size:
+    2px 2px,
+    2px 2px,
+    auto;
+  background-position:
+    0 0,
+    1px 1px,
+    center;
+  background-repeat:
+    repeat,
+    repeat,
+    no-repeat;
 }
 
-/* Make the section title bigger */
-.howitworks-section h2 {
-  font-size: 2.5rem;       /* up from ~2rem—adjust as needed */
-  margin-bottom: 1rem;
-  color: #1b5218;          /* keep your dark-green text */
+
+/* --- Top Section Block --- */
+.top-section-block {
+  background-color: transparent;
+  padding-bottom: 1px;
 }
 
-.steps-container {
+/* --- Navbar --- */
+.navbar {
+  padding: 0;
+}
+.navbar-content-limiter {
   display: flex;
-  justify-content: center; /* center the four steps */
-  flex-wrap: nowrap;       /* keep in one row on wide viewports */
-  gap: 20px;               /* space between steps */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  transition: opacity 0.3s ease; /* For potential logo hover */
+}
+.nav-logo:hover {
+  opacity: 0.85; /* Slight fade for logo if it's a link */
+}
+
+.nav-logo .logo-img {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 0 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 400;
+  position: relative; /* For pseudo-element underline */
+  padding-bottom: 4px; /* Space for underline */
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-links a::after { /* Underline effect */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: #A5CBA1; /* Lighter green for underline */
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: #E0E0E0; /* Slightly brighter white */
+  opacity: 1; /* Ensure full opacity on hover if base hover has opacity */
+  outline: none; /* Remove default focus outline if custom is provided */
+}
+.nav-links a:hover::after,
+.nav-links a:focus::after {
+  width: 100%; /* Expand underline on hover/focus */
+}
+
+
+.nav-signin-btn {
+  background-color: #2E7D72;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.nav-signin-btn:hover,
+.nav-signin-btn:focus {
+  background-color: #25685E; /* Darker teal */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  outline: none;
+}
+.nav-signin-btn:active {
+  background-color: #1F564F; /* Even darker for active state */
+  transform: translateY(1px);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+
+/* --- Hero Section --- */
+.hero-section {
+  text-align: center;
+  padding: 40px 20px 60px;
+}
+
+.hero-section .site-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-section .site-description {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #A5CBA1;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- Upload Section --- */
+.upload-section {
+  padding: 50px 40px 40px;
+  text-align: center;
+  background-color: transparent;
+}
+
+.upload-box-container {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.upload-box {
+  border: 2px dashed #A5CBA1;
+  border-radius: 12px;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease; /* Smooth border color change */
+}
+.upload-box:hover {
+  border-color: #3E6448; /* Darker green for border on hover */
+}
+
+
+.upload-area-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 20px;
+  /* Assuming assets/Upload-Icon.png is the correct icon from HTML */
+}
+
+.drag-drop-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1A4D2E;
+  margin-top: 0;
   margin-bottom: 20px;
 }
 
-.step {
-  flex: 1 1 150px;         /* allow steps to shrink/grow equally, min 150px */
-  max-width: 200px;
-  background: #fff;
+#choose-file-btn {
+  background-color: #1A4D2E;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 30px;
   border-radius: 8px;
-  padding: 20px 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
 
-.step-icon {
-  width: 80px;
-  height: 80px;
-  background-color: #d8e4c0;  /* logo background only */
-  border-radius: 12px;
-  margin: 0 auto 12px;       /* center icon and add bottom gap */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#choose-file-btn:hover,
+#choose-file-btn:focus {
+  background-color: #143D24; /* Darker green */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  outline: none;
+}
+#choose-file-btn:active {
+  background-color: #0F2C1A; /* Even darker for active state */
+  transform: translateY(1px);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
 }
 
-.step-icon img {
-  width: 40px;
-  height: 40px;              /* adjust as needed for consistent padding */
-}
 
-.step h3 {
-  margin: 8px 0;
-  font-size: 1.2rem;
-  color: #1b5218;             /* override default text color */
-}
-
-.step p {
-  font-size: 0.95rem;
-  color: #1b5218;             /* override default text color */
-}
-
-/*— 4) Testimonial: pale moss —*/
-.testimonial-section {
-  background-color: #dbe5c2;  /* restore the pale moss background */
-  padding: 40px 20px;
+.supported-plants {
+  margin-top: 30px;
   text-align: center;
 }
 
+.supported-plants-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1A4D2E;
+  margin-bottom: 20px;
+}
+
+.plant-types-list {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.plant-type {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #1A4D2E;
+  background-color: #E6EEDD;
+  padding: 6px 12px;
+  border-radius: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+/* If plant types become interactive:
+.plant-type:hover {
+  background-color: #d8e4c0;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+*/
+
+.plant-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Prediction Results --- */
+.results {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 8px;
+  text-align: left;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.results h3 {
+  color: #1A4D2E;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+.results p {
+  color: #3E6448;
+  font-weight: 400;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.results p strong {
+  color: #1A4D2E;
+  font-weight: 700;
+}
+.loading-text {
+    color: #1A4D2E;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+/* --- How It Works Section --- */
+.howitworks-section {
+  padding: 60px 40px;
+  text-align: center;
+  background-color: transparent;
+  position: relative;
+}
+
+.howitworks-section h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1A4D2E;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.howitworks-section h2::before,
+.testimonial-section h2::before {
+  content: "";
+  display: block;
+  width: 70%;
+  max-width: 450px;
+  height: 1px;
+  background-color: #CDD4B8;
+  margin: 0 auto 25px auto;
+}
+
+
+.steps-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.step {
+  background-color: transparent;
+  border-radius: 16px;
+  padding: 10px;
+  flex: 1 1 200px;
+  max-width: 260px;
+  text-align: center;
+  box-shadow: none;
+}
+
+.step-icon-wrapper {
+  background-color: #d8e4c0;
+  width: 84px;
+  height: 84px;
+  border-radius: 14px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition */
+}
+.step-icon-wrapper:hover {
+  transform: scale(1.05) translateY(-3px); /* Slight scale and lift */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+
+.step-icon-img {
+  width: 42px;
+  height: 42px;
+}
+
+.step h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1A4D2E;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.step p {
+  font-size: 0.9375rem;
+  color: #3E6448;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.accuracy {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1A4D2E;
+  margin-top: 40px;
+}
+
+/* --- Testimonial Section --- */
+.testimonial-section {
+  padding: 60px 40px;
+  text-align: center;
+  background-color: transparent;
+  position: relative;
+}
+
+.testimonial-section h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1A4D2E;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* Separator line styling is shared with .howitworks-section h2::before */
+
 .testimonial-section blockquote {
-  font-style: italic;
-  color: #444;
-  margin: 0 auto;
-  max-width: 600px;
-  line-height: 1.4;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #3E6448;
+  max-width: 700px;
+  margin: 0 auto 30px auto;
+  line-height: 1.7;
+  font-style: normal;
+}
+
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.testimonial-dots .dot {
+  width: 10px;
+  height: 10px;
+  background-color: #A5CBA1;
+  border-radius: 50%;
+  cursor: pointer; /* Indicate interactivity */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.testimonial-dots .dot:hover {
+  background-color: #8FB08C; /* Slightly darker inactive color */
+  transform: scale(1.2);
+}
+.testimonial-dots .dot.active {
+  background-color: #3E6448;
+  transform: scale(1.1); /* Active dot can also have a slight scale */
+}
+.testimonial-dots .dot.active:hover {
+  background-color: #33523A; /* Darker active color on hover */
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+  .page-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .main-content-wrapper {
+    background-image:
+      linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02)),
+      linear-gradient(-45deg, rgba(0,0,0,0.01) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.01) 75%, rgba(0,0,0,0.01)),
+      linear-gradient(to bottom,
+        #1E5B18 0%,
+        #1E5B18 18%,
+        #4A7842 28%,
+        #edf0d5 48%,
+        #dce6c3 100%
+      );
+  }
+  .navbar-content-limiter {
+    padding: 20px;
+  }
+  .hero-section .site-title {
+    font-size: 2.5rem;
+  }
+  .steps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .step {
+    max-width: 350px;
+    width: 100%;
+  }
+  .howitworks-section h2::before,
+  .testimonial-section h2::before {
+    width: 65%;
+    max-width: 400px;
+  }
+  #wave1 { height: 750px; background-size: 1000px 750px; bottom: -250px;}
+  #wave2 { height: 650px; background-size: 1200px 650px; bottom: -200px;}
+  #wave3 { height: 550px; background-size: 800px 550px; bottom: -150px;}
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .main-content-wrapper {
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 16px;
+    background-image:
+      linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.02) 75%, rgba(255,255,255,0.02)),
+      linear-gradient(-45deg, rgba(0,0,0,0.01) 25%, transparent 25%, transparent 75%, rgba(0,0,0,0.01) 75%, rgba(0,0,0,0.01)),
+      linear-gradient(to bottom,
+        #1E5B18 0%,
+        #1E5B18 15%,
+        #4A7842 25%,
+        #edf0d5 45%,
+        #dce6c3 100%
+      );
+  }
+  .navbar-content-limiter {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .nav-links li {
+    margin: 5px 10px;
+  }
+
+  .hero-section {
+    padding: 30px 15px 50px;
+  }
+  .hero-section .site-title {
+    font-size: 2rem;
+  }
+  .hero-section .site-description {
+    font-size: 1rem;
+  }
+  .upload-section, .howitworks-section, .testimonial-section {
+    padding: 40px 20px;
+  }
+  .upload-box-container {
+    padding: 25px;
+  }
+  .drag-drop-text {
+    font-size: 1.1rem;
+  }
+  #choose-file-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  .plant-types-list {
+    gap: 10px;
+  }
+  .plant-type {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+  .plant-icon {
+    width: 18px; height: 18px;
+  }
+  .howitworks-section h2, .testimonial-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 35px;
+  }
+  .howitworks-section h2::before,
+  .testimonial-section h2::before {
+    margin-bottom: 20px;
+    width: 60%;
+    max-width: 300px;
+  }
+  .step-icon-wrapper {
+    width: 70px; height: 70px; border-radius: 12px;
+  }
+  .step-icon-img {
+    width: 36px; height: 36px;
+  }
+  .testimonial-section blockquote {
+    font-size: 1.1rem;
+  }
+  .accuracy {
+    font-size: 1.25rem;
+  }
+
+  #wave1 { height: 650px; background-size: 1000px 650px; bottom: -200px;}
+  #wave2 { height: 550px; background-size: 1200px 550px; bottom: -150px;}
+  #wave3 { height: 450px; background-size: 800px 450px; bottom: -100px;}
+}
+
+@media (max-width: 480px) {
+    .page-container {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .nav-logo span {
+        font-size: 1.5rem;
+    }
+    .nav-signin-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+    .hero-section .site-title {
+        font-size: 1.75rem;
+    }
+    .supported-plants-title {
+        font-size: 1rem;
+    }
+    .plant-type span {
+        font-size: 0.8rem;
+    }
+     .plant-type {
+        padding: 4px 8px;
+    }
+    .plant-icon {
+        width: 16px; height: 16px;
+    }
+    .howitworks-section h2::before,
+    .testimonial-section h2::before {
+        width: 50%;
+        max-width: 200px;
+        margin-bottom: 15px;
+    }
+    .howitworks-section h2, .testimonial-section h2 {
+        margin-bottom: 30px;
+    }
+    .step-icon-wrapper {
+        width: 60px; height: 60px; border-radius: 10px;
+    }
+    .step-icon-img {
+        width: 30px; height: 30px;
+    }
+
+    #wave1 { height: 550px; background-size: 1000px 550px; bottom: -150px;}
+    #wave2 { height: 450px; background-size: 1200px 450px; bottom: -100px;}
+    #wave3 { height: 350px; background-size: 800px 350px; bottom: -50px;}
 }
