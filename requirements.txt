@@ -1,15 +1,31 @@
 Flask==2.2.3
-Flask-Cors==3.0.10
-Pillow==11.1.0
-torch==2.7.0         # Make sure this version matches what you used for training/saving model
-torchvision==0.22.0 # Match the torch version
-gunicorn==23.0.0      # Production WSGI server
-numpy               # Torch dependency, include explicitly
-requests            # Often useful, included by Flask indirectly too sometimes
-urllib3             # requests dependency
-idna                # requests dependency
-charset-normalizer  # requests dependency
-certifi             # requests dependency
-Werkzeug==2.2.3     # Flask dependency (often good to pin)
-itsdangerous==2.2.0 # Flask dependency (often good to pin)
-click==8.1.8        # Flask dependency (often good to pin)
+flask-cors==3.0.10
+
+Werkzeug<2.3.0
+
+Pillow
+
+
+# Core ML & data libraries
+torch>=1.13.0
+torchvision>=0.14.0
+
+# Data handling & progress bars
+pandas>=1.5.0
+tqdm>=4.64.0
+numpy>=1.23.0
+
+# Image I/O & preprocessing
+opencv-python>=4.6.0
+Pillow>=9.4.0
+
+# Plotting
+matplotlib>=3.6.0
+seaborn>=0.12.0
+
+# Machine learning utilities
+scikit-learn>=1.1.0
+
+# Experiment tracking
+wandb>=0.13.0
+

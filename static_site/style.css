@@ -11,75 +11,131 @@ body {
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  background-color: #2A5A25;
-}
 
+  /* Gradient to match image: Darkest Top-Left to Lightest Bottom-Right */
+  background: hsla(158, 57%, 23%, 1); /* Fallback - darkest color */
+  background: linear-gradient(to bottom right, /* This is top-left to bottom-right */
+    hsla(158, 57%, 23%, 1) 0%,    /* Darkest color from your block */
+    hsla(99, 26%, 40%, 1) 55%,    /* Middle color */
+    hsla(70, 25%, 63%, 1) 100%   /* Lightest color */
+  );
+
+}
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-/* --- Animated Waves Background --- */
-.waves-background {
+/* --- Falling Leaves Animation --- */
+.leaves-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -10;
+  pointer-events: none;
   overflow: hidden;
+  z-index: -5;
 }
 
-.waves-background .wave {
+.leaf {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 300%;
-  background-repeat: repeat-x;
+  top: -10%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  animation-name: fallingLeaf;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  will-change: transform, opacity;
+  opacity: 0;
+  width: 30px;
+  height: 40px;
 }
 
-#wave1 {
-  height: 950px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 180'%3E%3Cpath d='M0,100 C200,0 300,200 500,100 S700,0 1000,100 V180 H0 Z' fill='%235D9F53'/%3E%3C/svg%3E");
-  background-size: 1000px 950px;
-  animation-name: animateWave1Keyframe;
-  animation-duration: 60s;
-  opacity: 0.25;
-  bottom: -300px;
-}
-#wave2 {
-  height: 850px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 150'%3E%3Cpath d='M0,80 C250,150 350,10 600,80 S850,150 1200,80 V150 H0 Z' fill='%234A8A42'/%3E%3C/svg%3E");
-  background-size: 1200px 850px;
-  animation-name: animateWave2Keyframe;
-  animation-duration: 45s;
-  animation-direction: reverse;
-  opacity: 0.35;
-  bottom: -250px;
-}
-#wave3 {
-  height: 750px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 120'%3E%3Cpath d='M0,70 C150,120 250,20 400,70 S550,120 800,70 V120 H0 Z' fill='%23377431'/%3E%3C/svg%3E");
-  background-size: 800px 750px;
-  animation-name: animateWave3Keyframe;
-  animation-duration: 30s;
-  opacity: 0.5;
-  bottom: -200px;
+@keyframes fallingLeaf {
+  0% {
+    transform: translateY(-10vh) translateX(0vw) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  20% {
+    transform: translateY(20vh) translateX(2vw) rotate(25deg) scale(1.05);
+  }
+  40% {
+    transform: translateY(40vh) translateX(-3vw) rotate(-15deg) scale(1);
+  }
+  60% {
+    transform: translateY(60vh) translateX(4vw) rotate(35deg) scale(1.02);
+  }
+  80% {
+    transform: translateY(80vh) translateX(-2.5vw) rotate(-25deg) scale(0.98);
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(110vh) translateX(1vw) rotate(5deg) scale(0.95);
+    opacity: 0;
+  }
 }
 
-@keyframes animateWave1Keyframe {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-1000px); }
-}
-@keyframes animateWave2Keyframe {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-1200px); }
-}
-@keyframes animateWave3Keyframe {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-800px); }
-}
+/* --- Falling Leaves Animation --- */
+/* ... (keep .leaves-container, .leaf base style, and @keyframes fallingLeaf as is) ... */
+
+/* --- UPDATED LEAF IMAGE ASSIGNMENTS --- */
+/* Using your 15 unique leaf PNGs, distributed among 18 leaf elements for variety */
+/* Some PNGs will be reused to fill all 18 leaf elements */
+
+.leaf1  { background-image: url('assets/leafs/leaf1.png'); }
+.leaf2  { background-image: url('assets/leafs/leaf2.png'); }
+.leaf3  { background-image: url('assets/leafs/leaf3.png'); }
+.leaf4  { background-image: url('assets/leafs/leaf4.png'); }
+.leaf5  { background-image: url('assets/leafs/leaf5.png'); }
+.leaf6  { background-image: url('assets/leafs/leaf6.png'); }
+.leaf7  { background-image: url('assets/leafs/leaf7.png'); }
+.leaf8  { background-image: url('assets/leafs/leaf8.png'); }
+.leaf9  { background-image: url('assets/leafs/leaf9.png'); } /* NEW PNG */
+.leaf10 { background-image: url('assets/leafs/leaf10.png');} /* NEW PNG */
+.leaf11 { background-image: url('assets/leafs/leaf11.png');} /* NEW PNG */
+.leaf12 { background-image: url('assets/leafs/leaf12.png');} /* NEW PNG */
+.leaf13 { background-image: url('assets/leafs/leaf13.png');} /* NEW PNG */
+.leaf14 { background-image: url('assets/leafs/leaf14.png');} /* NEW PNG */
+.leaf15 { background-image: url('assets/leafs/leaf15.png');} /* NEW PNG */
+
+/* Re-using some earlier leaves for the last few elements to get to 18 */
+.leaf16 { background-image: url('assets/leafs/leaf1.png'); } /* Reuse leaf1.png */
+.leaf17 { background-image: url('assets/leafs/leaf2.png'); } /* Reuse leaf2.png */
+.leaf18 { background-image: url('assets/leafs/leaf3.png'); } /* Reuse leaf3.png */
+
+
+/* --- ADJUSTED LEAF POSITIONS, SIZES, AND TIMINGS --- */
+/* Aiming for concentration on sides */
+
+/* LEFT SIDE LEAVES (approx 0% - 30% from left) */
+.leaf1  { width: 25px; height: 35px; left: 5%;   animation-duration: 13s; animation-delay: 0s;    }
+.leaf2  { width: 35px; height: 45px; left: 15%;  animation-duration: 10s; animation-delay: 1.8s;  }
+.leaf3  { width: 20px; height: 30px; left: 25%;  animation-duration: 16s; animation-delay: 3.2s;  }
+.leaf9  { width: 38px; height: 48px; left: 8%;   animation-duration: 11s; animation-delay: 0.5s;  } /* Using new leaf9.png */
+.leaf10 { width: 26px; height: 36px; left: 18%;  animation-duration: 17s; animation-delay: 2.2s;  } /* Using new leaf10.png */
+.leaf11 { width: 42px; height: 52px; left: 28%;  animation-duration: 9s;  animation-delay: 4.5s;  } /* Using new leaf11.png */
+.leaf16 { width: 29px; height: 39px; left: 12%;  animation-duration: 12.5s;animation-delay: 0.9s; } /* Using leaf1.png */
+.leaf17 { width: 33px; height: 43px; left: 22%;  animation-duration: 14.5s;animation-delay: 3.8s; } /* Using leaf2.png */
+.leaf18 { width: 39px; height: 49px; left: 2%;   animation-duration: 10.5s;animation-delay: 1.2s; } /* Using leaf3.png */
+
+/* RIGHT SIDE LEAVES (approx 70% - 100% from left) */
+.leaf4  { width: 30px; height: 40px; left: 72%;  animation-duration: 9s;  animation-delay: 0.3s;  }
+.leaf5  { width: 40px; height: 50px; left: 82%;  animation-duration: 14s; animation-delay: 2.8s;  }
+.leaf6  { width: 28px; height: 38px; left: 92%;  animation-duration: 11.5s;animation-delay: 4.1s;  } /* Using new leaf6.png */
+.leaf7  { width: 32px; height: 42px; left: 75%;  animation-duration: 15s; animation-delay: 1.1s;  } /* Using new leaf7.png */
+.leaf8  { width: 22px; height: 32px; left: 85%;  animation-duration: 10.8s;animation-delay: 3.5s;  } /* Using new leaf8.png */
+.leaf12 { width: 23px; height: 33px; left: 95%;  animation-duration: 13s; animation-delay: 0.6s;  } /* Using new leaf12.png */
+.leaf13 { width: 36px; height: 46px; left: 78%;  animation-duration: 12s; animation-delay: 3.0s;  } /* Using new leaf13.png */
+.leaf14 { width: 27px; height: 37px; left: 88%;  animation-duration: 10s; animation-delay: 1.5s;  } /* Using new leaf14.png */
+.leaf15 { width: 45px; height: 55px; left: 98%;  animation-duration: 15.5s;animation-delay: 2.5s;  } /* Using new leaf15.png */
+/* --- END ADJUSTED LEAF STYLES --- */
+
 
 .page-container {
   max-width: 100%;
@@ -90,7 +146,6 @@ body {
   padding-bottom: 40px;
 }
 
-/* --- Main Content Wrapper (Overall Card with Gradient & Texture) --- */
 .main-content-wrapper {
   max-width: 1100px;
   margin: 0 auto;
@@ -125,14 +180,11 @@ body {
     no-repeat;
 }
 
-
-/* --- Top Section Block --- */
 .top-section-block {
   background-color: transparent;
   padding-bottom: 1px;
 }
 
-/* --- Navbar --- */
 .navbar {
   padding: 0;
 }
@@ -151,10 +203,10 @@ body {
   font-size: 1.8rem;
   font-weight: 700;
   color: #FFFFFF;
-  transition: opacity 0.3s ease; /* For potential logo hover */
+  transition: opacity 0.3s ease;
 }
 .nav-logo:hover {
-  opacity: 0.85; /* Slight fade for logo if it's a link */
+  opacity: 0.85;
 }
 
 .nav-logo .logo-img {
@@ -179,33 +231,32 @@ body {
   color: #FFFFFF;
   font-size: 1rem;
   font-weight: 400;
-  position: relative; /* For pseudo-element underline */
-  padding-bottom: 4px; /* Space for underline */
+  position: relative;
+  padding-bottom: 4px;
   transition: color 0.3s ease, opacity 0.3s ease;
 }
 
-.nav-links a::after { /* Underline effect */
+.nav-links a::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 0;
   height: 1.5px;
-  background-color: #A5CBA1; /* Lighter green for underline */
+  background-color: #A5CBA1;
   transition: width 0.3s ease;
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
-  color: #E0E0E0; /* Slightly brighter white */
-  opacity: 1; /* Ensure full opacity on hover if base hover has opacity */
-  outline: none; /* Remove default focus outline if custom is provided */
+  color: #E0E0E0;
+  opacity: 1;
+  outline: none;
 }
 .nav-links a:hover::after,
 .nav-links a:focus::after {
-  width: 100%; /* Expand underline on hover/focus */
+  width: 100%;
 }
-
 
 .nav-signin-btn {
   background-color: #2E7D72;
@@ -221,18 +272,16 @@ body {
 
 .nav-signin-btn:hover,
 .nav-signin-btn:focus {
-  background-color: #25685E; /* Darker teal */
+  background-color: #25685E;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   outline: none;
 }
 .nav-signin-btn:active {
-  background-color: #1F564F; /* Even darker for active state */
+  background-color: #1F564F;
   transform: translateY(1px);
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
 }
 
-
-/* --- Hero Section --- */
 .hero-section {
   text-align: center;
   padding: 40px 20px 60px;
@@ -258,7 +307,6 @@ body {
   line-height: 1.6;
 }
 
-/* --- Upload Section --- */
 .upload-section {
   padding: 50px 40px 40px;
   text-align: center;
@@ -284,18 +332,16 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.3s ease; /* Smooth border color change */
+  transition: border-color 0.3s ease;
 }
 .upload-box:hover {
-  border-color: #3E6448; /* Darker green for border on hover */
+  border-color: #3E6448;
 }
-
 
 .upload-area-icon {
   width: 48px;
   height: 48px;
   margin-bottom: 20px;
-  /* Assuming assets/Upload-Icon.png is the correct icon from HTML */
 }
 
 .drag-drop-text {
@@ -320,16 +366,15 @@ body {
 
 #choose-file-btn:hover,
 #choose-file-btn:focus {
-  background-color: #143D24; /* Darker green */
+  background-color: #143D24;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   outline: none;
 }
 #choose-file-btn:active {
-  background-color: #0F2C1A; /* Even darker for active state */
+  background-color: #0F2C1A;
   transform: translateY(1px);
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
 }
-
 
 .supported-plants {
   margin-top: 30px;
@@ -361,20 +406,12 @@ body {
   border-radius: 16px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-/* If plant types become interactive:
-.plant-type:hover {
-  background-color: #d8e4c0;
-  transform: translateY(-2px);
-  cursor: pointer;
-}
-*/
 
 .plant-icon {
   width: 20px;
   height: 20px;
 }
 
-/* --- Prediction Results --- */
 .results {
   margin-top: 30px;
   padding: 20px;
@@ -405,7 +442,6 @@ body {
     margin-top: 15px;
 }
 
-/* --- How It Works Section --- */
 .howitworks-section {
   padding: 60px 40px;
   text-align: center;
@@ -431,7 +467,6 @@ body {
   background-color: #CDD4B8;
   margin: 0 auto 25px auto;
 }
-
 
 .steps-container {
   display: flex;
@@ -461,13 +496,12 @@ body {
   align-items: center;
   justify-content: center;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .step-icon-wrapper:hover {
-  transform: scale(1.05) translateY(-3px); /* Slight scale and lift */
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
 }
-
 
 .step-icon-img {
   width: 42px;
@@ -497,7 +531,6 @@ body {
   margin-top: 40px;
 }
 
-/* --- Testimonial Section --- */
 .testimonial-section {
   padding: 60px 40px;
   text-align: center;
@@ -512,8 +545,6 @@ body {
   margin-bottom: 30px;
   position: relative;
 }
-
-/* Separator line styling is shared with .howitworks-section h2::before */
 
 .testimonial-section blockquote {
   font-size: 1.25rem;
@@ -536,23 +567,21 @@ body {
   height: 10px;
   background-color: #A5CBA1;
   border-radius: 50%;
-  cursor: pointer; /* Indicate interactivity */
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .testimonial-dots .dot:hover {
-  background-color: #8FB08C; /* Slightly darker inactive color */
+  background-color: #8FB08C;
   transform: scale(1.2);
 }
 .testimonial-dots .dot.active {
   background-color: #3E6448;
-  transform: scale(1.1); /* Active dot can also have a slight scale */
+  transform: scale(1.1);
 }
 .testimonial-dots .dot.active:hover {
-  background-color: #33523A; /* Darker active color on hover */
+  background-color: #33523A;
 }
 
-
-/* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
   .page-container {
     padding-top: 30px;
@@ -589,9 +618,6 @@ body {
     width: 65%;
     max-width: 400px;
   }
-  #wave1 { height: 750px; background-size: 1000px 750px; bottom: -250px;}
-  #wave2 { height: 650px; background-size: 1200px 650px; bottom: -200px;}
-  #wave3 { height: 550px; background-size: 800px 550px; bottom: -150px;}
 }
 
 @media (max-width: 768px) {
@@ -680,10 +706,6 @@ body {
   .accuracy {
     font-size: 1.25rem;
   }
-
-  #wave1 { height: 650px; background-size: 1000px 650px; bottom: -200px;}
-  #wave2 { height: 550px; background-size: 1200px 550px; bottom: -150px;}
-  #wave3 { height: 450px; background-size: 800px 450px; bottom: -100px;}
 }
 
 @media (max-width: 480px) {
@@ -728,8 +750,4 @@ body {
     .step-icon-img {
         width: 30px; height: 30px;
     }
-
-    #wave1 { height: 550px; background-size: 1000px 550px; bottom: -150px;}
-    #wave2 { height: 450px; background-size: 1200px 450px; bottom: -100px;}
-    #wave3 { height: 350px; background-size: 800px 350px; bottom: -50px;}
 }
