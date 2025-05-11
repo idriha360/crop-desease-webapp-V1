@@ -1,10 +1,10 @@
 Flask==2.2.3
 flask-cors==3.0.10
 Werkzeug<2.3.0
-Pillow>=9.4.0 # You have Pillow with a version, let's keep it pinned or allow newer
-gunicorn
+Pillow==10.1.0
+gunicorn==22.0.0
 
-# For PyTorch CPU - this method should work with recent pip versions
-# It tells pip to also look at the PyTorch CPU-specific wheel index
-torch --extra-index-url https://download.pytorch.org/whl/cpu
-torchvision --extra-index-url https://download.pytorch.org/whl/cpu
+# Explicitly pinning PyTorch and Torchvision versions for CPU
+# Using Python 3.12 compatible versions based on your earlier build log
+torch==2.2.2 --extra-index-url https://download.pytorch.org/whl/cpu
+torchvision==0.17.2 --extra-index-url https://download.pytorch.org/whl/cpu

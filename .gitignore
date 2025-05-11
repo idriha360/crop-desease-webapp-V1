@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+virtualenv/
+ENV/
+env/
+.env
+.venv
+pip-selfcheck.json
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.hypothesis/
+.pytest_cache/
+cover/
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+*.pot
+*.pyt
+
+# VS Code
+.vscode/
+
+# Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Railway specific (if any local railway cli files are generated, not usually needed here)
+# .railway/

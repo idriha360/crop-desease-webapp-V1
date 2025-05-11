@@ -1,0 +1,33 @@
+# Common ignores
+.git
+.gitignore
+.dockerignore
+README.md
+LICENSE
+*.log
+
+# Python build artifacts and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+virtualenv/
+ENV/
+env/
+.env
+.venv
+pip-selfcheck.json
+
+# VS Code
+.vscode/
+
+# OS-specific
+.DS_Store
+
+# Notebooks (if any, not part of runtime)
+*.ipynb
+.ipynb_checkpoints
+
+# Any large local data files/folders not needed for runtime
+# e.g., if you had a local "raw_dataset/" folder:
+# raw_dataset/
