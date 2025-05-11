@@ -751,3 +751,299 @@ body {
         width: 30px; height: 30px;
     }
 }
+
+/* --- Additions for About and Contact Pages --- */
+
+/* General section padding consistency for new pages */
+.content-section {
+    padding: 60px 40px;
+    background-color: transparent; /* Match other sections */
+    position: relative;
+    color: #1A4D2E; /* Default text color */
+}
+
+.content-section h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1A4D2E;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+/* Add the pseudo-element line if you want it on new section titles too */
+.content-section h2::before {
+  content: "";
+  display: block;
+  width: 70%;
+  max-width: 450px;
+  height: 1px;
+  background-color: #CDD4B8;
+  margin: 0 auto 25px auto;
+}
+
+
+/* About Page Specific Styles */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-size: 1.05rem; /* Slightly larger text for readability */
+}
+
+.about-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3E6448; /* Slightly different shade for subheadings */
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    color: #3E6448;
+}
+
+.about-content ul {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    color: #3E6448;
+}
+
+.about-content ul li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.about-content ul li strong {
+    color: #1A4D2E; /* Darker color for emphasis */
+    font-weight: 700;
+}
+
+.about-content a {
+    color: #2E7D72; /* Match button color or a similar accent */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.about-content a:hover {
+    color: #1F564F;
+    text-decoration: underline;
+}
+
+.about-content .acknowledgements {
+    margin-top: 40px;
+    font-size: 0.95rem;
+    color: #3E6448;
+    font-style: italic;
+    border-top: 1px dashed #CDD4B8;
+    padding-top: 20px;
+}
+
+
+/* Contact Page Specific Styles */
+.contact-section {
+     text-align: center; /* Center the content block */
+}
+
+.contact-form-container {
+    background-color: #FFFFFF; /* White background like upload box */
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+    max-width: 600px; /* Slightly smaller than upload box */
+    margin: 0 auto; /* Center the container */
+    text-align: left; /* Align form elements to the left within container */
+    color: #1A4D2E; /* Text color for labels etc. */
+}
+
+.contact-form-container h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #3E6448;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center; /* Center "Connect Directly" heading */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1A4D2E;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #A5CBA1; /* Match upload box border */
+    border-radius: 8px;
+    font-family: "Montserrat", sans-serif; /* Use consistent font */
+    font-size: 1rem;
+    color: #1A4D2E;
+    background-color: #E6EEDD; /* Light background like plant type badges */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #3E6448;
+    box-shadow: 0 0 0 0.1rem rgba(62, 100, 72, 0.25); /* Subtle focus glow */
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resize */
+}
+
+#submit-contact-btn {
+    /* Style matches #choose-file-btn */
+    display: block; /* Make it a block element to center */
+    width: auto; /* Allow button size based on padding */
+    margin: 20px auto 0 auto; /* Center the button and add top margin */
+    background-color: #1A4D2E;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+#submit-contact-btn:hover,
+#submit-contact-btn:focus {
+  background-color: #143D24;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  outline: none;
+}
+#submit-contact-btn:active {
+  background-color: #0F2C1A;
+  transform: translateY(1px);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.contact-info {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px dashed #CDD4B8; /* Separator */
+    text-align: center; /* Center the contact links */
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #3E6448;
+}
+
+.contact-info .contact-link {
+    color: #2E7D72; /* Match button/about link color */
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.contact-info .contact-link:hover {
+    color: #1F564F;
+    text-decoration: underline;
+}
+
+.form-status {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: #1A4D2E; /* Default color, JS will change for success/error */
+}
+
+
+/* --- Responsive Adjustments for New Sections --- */
+
+@media (max-width: 768px) {
+    .content-section {
+        padding: 40px 20px;
+    }
+    .content-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 35px;
+    }
+    .content-section h2::before {
+        margin-bottom: 20px;
+        width: 60%;
+        max-width: 300px;
+    }
+    .about-content {
+        font-size: 1rem;
+    }
+    .about-content h3 {
+        font-size: 1.3rem;
+    }
+    .contact-form-container {
+        padding: 25px;
+    }
+    .contact-form-container h3 {
+        font-size: 1.2rem;
+    }
+    .form-group label {
+        font-size: 0.9rem;
+    }
+     .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    #submit-contact-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .contact-info {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+    .contact-info p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-section {
+        padding: 30px 15px;
+    }
+     .content-section h2 {
+        font-size: 1.75rem;
+        margin-bottom: 30px;
+     }
+     .content-section h2::before {
+        width: 50%;
+        max-width: 200px;
+        margin-bottom: 15px;
+    }
+    .about-content {
+        font-size: 0.95rem;
+    }
+    .about-content h3 {
+        font-size: 1.2rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+     .contact-form-container {
+        padding: 20px;
+    }
+    .contact-form-container h3 {
+        font-size: 1.1rem;
+    }
+    .contact-info {
+        margin-top: 20px;
+        padding-top: 15px;
+    }
+}

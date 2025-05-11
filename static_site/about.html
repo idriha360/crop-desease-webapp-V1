@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Crop Disease Detector</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Falling Leaves Animation Container (matches index.html) -->
+  <div class="leaves-container">
+    <!-- Add your 15+ leaf divs here with classes like leaf1, leaf2, etc. -->
+    <!-- Example (Ensure you copy all leaf divs from your index.html) -->
+    <div class="leaf leaf1"></div>
+    <div class="leaf leaf2"></div>
+    <div class="leaf leaf3"></div>
+    <div class="leaf leaf4"></div>
+    <div class="leaf leaf5"></div>
+    <div class="leaf leaf6"></div>
+    <div class="leaf leaf7"></div>
+    <div class="leaf leaf8"></div>
+    <div class="leaf leaf9"></div>
+    <div class="leaf leaf10"></div>
+    <div class="leaf leaf11"></div>
+    <div class="leaf leaf12"></div>
+    <div class="leaf leaf13"></div>
+    <div class="leaf leaf14"></div>
+    <div class="leaf leaf15"></div>
+    <!-- Copy any additional leaf divs (leaf16, leaf17, leaf18...) from index.html -->
+  </div>
+
+  <div class="page-container">
+    <main class="main-content-wrapper">
+      <div class="top-section-block">
+        <nav class="navbar">
+          <div class="navbar-content-limiter">
+            <div class="nav-logo">
+              <img src="assets/logo.png" alt="Crop logo" class="logo-img" />
+              <span>Crop</span>
+            </div>
+            <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html" class="active">About</a></li> <!-- Added 'active' class -->
+              <li><a href="index.html#howitworks-section">Features</a></li> <!-- Updated link -->
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="nav-signin-btn">Sign In</button>
+          </div>
+        </nav>
+
+        <header class="hero-section">
+          <h1 class="site-title">About This Project & My Journey</h1>
+          <p class="site-description">Learn about the motivation, development, and technology behind the Crop Disease Detector.</p>
+        </header>
+      </div>
+
+      <!-- About Section Content -->
+      <section class="about-section content-section"> <!-- Added content-section for potential shared padding/margin -->
+        <h2>About Me & The Project</h2>
+
+        <div class="about-content">
+            <h3>My Background</h3>
+            <p>My name is Haithem Chouari, and I am currently pursuing my degree in Agronomy at the Institute of Agronomy and Veterinary Medicine Hassan II (IAV). My studies have ignited a strong interest in modern agricultural practices, particularly in areas like crop health and disease management.</p>
+            <p>Parallel to my agronomy studies, I've cultivated a passion for programming and technology over the past few years. Starting with fundamental concepts and basic projects in languages like C, Python, and SQL, my interests recently converged with data science and machine learning in 2024. Building upon guided projects and online courses, I'm now focused on applying these skills to real-world problems, leading me to projects like this one.</p>
+
+            <h3>Project Motivation</h3>
+            <p>The inspiration for the Crop Disease Detector stemmed from my exploration of Convolutional Neural Networks (CNNs) and their powerful capabilities in image analysis. Recognizing the critical importance of timely and accurate disease identification in agriculture – a core aspect of my agronomy education – I saw an opportunity to apply my newfound machine learning skills. This project became a way to bridge my academic learning in agronomy with my practical development skills, aiming to create a useful tool for farmers and gardeners.</p>
+
+            <h3>Development Process & Technical Highlights</h3>
+            <p>Developing this application followed a standard machine learning project pipeline:
+            <ul>
+                <li><strong>Data Collection:</strong> Utilizing a comprehensive dataset from Kaggle containing images of various plant leaves, both healthy and diseased.</li>
+                <li><strong>Preprocessing:</strong> Cleaning, augmenting, and preparing the image data to be suitable for model training.</li>
+                <li><strong>Model Selection & Training:</strong> Experimenting with different model architectures, including building my own custom models and leveraging powerful pre-trained networks like ResNet and EfficientNet. The model was trained iteratively, focusing on key performance metrics (Accuracy, Recall, F1-score, Precision, Confusion Matrix) to optimize performance.</li>
+                <li><strong>Performance Tuning:</strong> Addressing challenges such as model training time by optimizing data loading and treatment functions, and pushing model performance on unseen data through rigorous testing and architectural refinement.</li>
+            </ul>
+            The result is an AI model capable of identifying crop diseases with an accuracy of <strong>99.65%</strong> on its training dataset. The front-end is built using <strong>HTML, CSS, and JavaScript</strong>, providing a clean and intuitive user interface. The backend, handling the image analysis and prediction, is powered by <strong>Python</strong>, leveraging frameworks and libraries such as <strong>Flask, Pytorch, Scikit-learn, Numpy, Pandas, Matplotlib, and Seaborn</strong>.</p>
+            <p>Throughout the development, I also benefited from leveraging AI assistants to refine code and explore solutions, a testament to integrating modern tools into the development workflow.</p>
+
+
+            <h3>Future Development & Potential Applications</h3>
+            <p>Looking ahead, I plan to continue improving the Crop Disease Detector. Future enhancements could include expanding the range of supported plant types and diseases, providing information on disease severity, suggesting potential treatment options, and further optimizing the model's performance on real-world, diverse images. The long-term vision is to make this technology even more accessible and comprehensive.</p>
+            <p>This tool has the potential to significantly benefit various users, including:
+            <ul>
+                <li><strong>Farmers:</strong> Enabling quick and early detection of diseases to prevent crop loss.</li>
+                <li><strong>Hobby Gardeners:</strong> Helping them diagnose issues with their plants easily.</li>
+                <li><strong>Agricultural Researchers:</strong> Providing a tool for preliminary disease identification.</li>
+                <li><strong>Aspiring Data Scientists:</strong> Offering an open-source example of applying ML to a practical problem (code available on <a href="https://github.com/idriha360/crop-desease-webapp-V1" target="_blank" rel="noopener noreferrer">GitHub</a>).</li>
+            </ul></p>
+
+            <p class="acknowledgements"><strong>Acknowledgements:</strong> I would like to extend my sincere gratitude to Marine (Web Developer) and Yassine (Data Scientist) for their invaluable reviews, suggestions, and support throughout this project. Their insights were crucial in refining both the front-end design and the data science pipeline.
+            <!-- Optional: If Marine and Yassine give permission, you can add their LinkedIn links here -->
+            <!-- e.g., <br>Connect with Marine: [Marine's LinkedIn Link] -->
+            <!-- e.g., <br>Connect with Yassine: [Yassine's LinkedIn Link] -->
+            </p>
+
+
+        </div>
+      </section>
+      <!-- End About Section Content -->
+
+      <!-- Placeholder for potential future sections or footer content if needed -->
+      <!-- Based on index.html structure, the main-content-wrapper seems to just end here -->
+
+    </main>
+  </div>
+  <!-- No specific script for About page needed unless you add interactive elements -->
+</body>
+</html>

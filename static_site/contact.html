@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Crop Disease Detector</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Falling Leaves Animation Container (matches index.html) -->
+  <div class="leaves-container">
+    <!-- Add your 15+ leaf divs here with classes like leaf1, leaf2, etc. -->
+    <!-- Example (Ensure you copy all leaf divs from your index.html) -->
+    <div class="leaf leaf1"></div>
+    <div class="leaf leaf2"></div>
+    <div class="leaf leaf3"></div>
+    <div class="leaf leaf4"></div>
+    <div class="leaf leaf5"></div>
+    <div class="leaf leaf6"></div>
+    <div class="leaf leaf7"></div>
+    <div class="leaf leaf8"></div>
+    <div class="leaf leaf9"></div>
+    <div class="leaf leaf10"></div>
+    <div class="leaf leaf11"></div>
+    <div class="leaf leaf12"></div>
+    <div class="leaf leaf13"></div>
+    <div class="leaf leaf14"></div>
+    <div class="leaf leaf15"></div>
+    <!-- Copy any additional leaf divs (leaf16, leaf17, leaf18...) from index.html -->
+  </div>
+
+  <div class="page-container">
+    <main class="main-content-wrapper">
+      <div class="top-section-block">
+        <nav class="navbar">
+          <div class="navbar-content-limiter">
+            <div class="nav-logo">
+              <img src="assets/logo.png" alt="Crop logo" class="logo-img" />
+              <span>Crop</span>
+            </div>
+            <ul class="nav-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="index.html#howitworks-section">Features</a></li> <!-- Updated link -->
+              <li><a href="contact.html" class="active">Contact</a></li> <!-- Added 'active' class -->
+            </ul>
+            <button class="nav-signin-btn">Sign In</button>
+          </div>
+        </nav>
+
+        <header class="hero-section">
+          <h1 class="site-title">Get in Touch</h1>
+          <p class="site-description">Have questions, feedback, or just want to connect? Feel free to reach out.</p>
+        </header>
+      </div>
+
+      <!-- Contact Section Content -->
+      <section class="contact-section content-section"> <!-- Added content-section -->
+        <h2>Contact Me</h2>
+
+        <div class="contact-form-container">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject (Optional)</label>
+                    <input type="text" id="subject" name="subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" id="submit-contact-btn">Send Message</button>
+            </form>
+
+            <div class="contact-info">
+                <h3>Connect Directly</h3>
+                <p>Email: <a href="mailto:h.chaithem360@gmail.com" class="contact-link">h.chaithem360@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/haithem-chouari-34474b331/" target="_blank" rel="noopener noreferrer" class="contact-link">Haithem Chouari</a></p>
+                <p>GitHub: <a href="https://github.com/idriha360/crop-desease-webapp-V1" target="_blank" rel="noopener noreferrer" class="contact-link">Project Repository</a></p>
+                 <!-- Optional: Add phone number if desired -->
+                 <!-- <p>Phone: <a href="tel:+[Your Phone Number]" class="contact-link">+[Your Phone Number]</a></p> -->
+            </div>
+             <p id="form-status" class="form-status"></p> <!-- For success/error messages -->
+        </div>
+      </section>
+      <!-- End Contact Section Content -->
+
+       <!-- Placeholder for potential future sections or footer content -->
+
+    </main>
+  </div>
+
+  <!-- Link the contact form JavaScript -->
+  <script src="contact.js"></script>
+</body>
+</html>
