@@ -207,8 +207,8 @@ body {
 }
 
 .nav-logo .logo-img {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   margin-right: 10px;
 }
 
@@ -216,8 +216,12 @@ body {
   list-style: none;
   display: flex;
   padding: 0;
-  margin: 0 auto;
+  /* margin: 0 auto; REMOVE this to stop perfect centering */
+  margin-left: auto;  /* Pushes it towards the right */
+  margin-right: 40px; /* Adjust this value to control distance from the right edge of navbar-content-limiter */
+                      /* Or use a percentage like margin-right: 5%; */
 }
+
 
 .nav-links li {
   margin: 0 20px;
@@ -1195,21 +1199,22 @@ body.about-page-specific-gradient .main-content-wrapper {
 }
 
 .dataset-info-section h2 {
-  font-size: 1.8rem; /* Slightly smaller than main section titles */
+  font-size: 2.25rem; /* Slightly smaller than main section titles */
   font-weight: 700;
   color: #1A4D2E;
   margin-bottom: 20px;
+  position: relative;
 }
 /* Add a line under this h2 if you like the style from other sections */
 
 .dataset-info-section h2::before {
   content: "";
   display: block;
-  width: 50%;
-  max-width: 1500px;
+  width: 70%;
+  max-width: 450px;
   height: 1px;
   background-color: #CDD4B8;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 25px auto;
 }
 
 
