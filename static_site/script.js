@@ -102,3 +102,44 @@ function displayResult(data) {
   // Instead, append the results right below the uploadBox:
   uploadBox.parentElement.appendChild(resultsSection);
 }
+
+// --- Info Carousel Functionality ---
+document.addEventListener('DOMContentLoaded', () => {
+    const carouselItems = document.querySelectorAll('.carousel-item');
+    const dots = document.querySelectorAll('.carousel-dots .dot');
+    let currentIndex = 0;
+    let carouselInterval;
+
+    function showItem(index) {
+        carouselItems.forEach((item, i) => {
+            item.classList.remove('active');
+            dots[i].classList.remove('active');
+        });
+        carouselItems[index].classList.add('active');
+        dots[index].classList.add('active');
+        currentIndex = index;
+    }
+
+    function startCarousel() {
+        // Clear existing interval before starting a new one
+        if (carouselInterval) clearInterval(carouselInterval);
+
+        carouselInterval = setInterval(() => {
+            let nextIndex = (currentIndex + 1) % carouselItems.length;
+            showItem(nextIndex);
+        }, 7000); // Change slide every 7 seconds
+    }
+
+    if (carouselItems.length > 0 && dots.length > 0) {
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideIndex = parseInt(dot.getAttribute('data-slide'));
+                showItem(slideIndex);
+                startCarousel(); // Restart interval on manual navigation
+            });
+        });
+
+        showItem(0); // Show the first item initially
+        startCarousel(); // Start automatic sliding
+    }
+});

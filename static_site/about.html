@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="about-page-specific-gradient">
   <!-- Falling Leaves Animation Container (matches index.html) -->
   <div class="leaves-container">
     <!-- Add your 15+ leaf divs here with classes like leaf1, leaf2, etc. -->
@@ -34,19 +34,21 @@
     <main class="main-content-wrapper">
       <div class="top-section-block">
         <nav class="navbar">
-          <div class="navbar-content-limiter">
-            <div class="nav-logo">
-              <img src="assets/logo.png" alt="Crop logo" class="logo-img" />
-              <span>Crop</span>
+            <div class="navbar-content-limiter">
+                <a href="index.html" class="nav-logo-link"> <!-- WRAPPED LOGO IN A LINK -->
+                <div class="nav-logo">
+                    <img src="assets/logo.png" alt="Crop logo" class="logo-img" />
+                    <span>Crop</span>
+                </div>
+                </a>
+                <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li> <!-- About is active -->
+                <li><a href="contact.html">Contact</a></li>
+                <!-- "Features" link removed -->
+                </ul>
+                <!-- "Sign In" button removed -->
             </div>
-            <ul class="nav-links">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html" class="active">About</a></li> <!-- Added 'active' class -->
-              <li><a href="index.html#howitworks-section">Features</a></li> <!-- Updated link -->
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <button class="nav-signin-btn">Sign In</button>
-          </div>
         </nav>
 
         <header class="hero-section">

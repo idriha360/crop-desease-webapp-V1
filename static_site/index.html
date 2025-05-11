@@ -34,20 +34,21 @@
       <div class="top-section-block">
         <nav class="navbar">
           <div class="navbar-content-limiter">
-            <div class="nav-logo">
-              <img src="assets/logo.png" alt="Crop logo" class="logo-img" />
-              <span>Crop</span>
-            </div>
+            <a href="index.html" class="nav-logo-link"> <!-- WRAPPED LOGO IN A LINK -->
+              <div class="nav-logo">
+                <img src="assets/logo.png" alt="Crop logo" class="logo-img" />
+                <span>Crop</span>
+              </div>
+            </a>
             <ul class="nav-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Features</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="index.html" class="active">Home</a></li> <!-- Home is active -->
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <!-- "Features" link removed -->
             </ul>
-            <button class="nav-signin-btn">Sign In</button>
+            <!-- "Sign In" button removed -->
           </div>
         </nav>
-
         <header class="hero-section">
           <h1 class="site-title">Detect Plant Diseases from Images</h1>
           <p class="site-description">Upload a plant leaf image to identify crop diseases using AI technology</p>
@@ -81,6 +82,7 @@
                 <img src="assets/corn-icon.png" alt="Corn Icon" class="plant-icon">
                 <span>Corn</span>
               </div>
+              <p class="more-plants-note">...and many more types supported as our model grows!</p>
             </div>
           </div>
         </div>
@@ -121,15 +123,31 @@
         <p class="accuracy">Accuracy: 99.65 %</p>
       </section>
 
-      <section class="testimonial-section">
-        <h2>Testimonials</h2>
-        <blockquote>
-          “The AI technology accurately identified the disease on my crops, allowing me to take action quickly.”
-        </blockquote>
-        <div class="testimonial-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+      <section class="dataset-info-section">
+        <h2>Test with the Training Dataset</h2>
+        <p>This model was trained using the publicly available <a href="https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset" target="_blank" rel="noopener noreferrer">PlantVillage Dataset</a> on Kaggle. Feel free to download images from this dataset to test the model's predictions and see its performance on familiar data.</p>
+      </section>
+
+      <section class="info-carousel-section"> <!-- Renamed class -->
+        <h2>Important Notes & Tips</h2> <!-- New Title -->
+        <div class="carousel-content-container">
+          <div class="carousel-item active">
+            <h3>Usage Disclaimer</h3>
+            <p>This tool is for educational and demonstration purposes only. It should not be used for making critical agricultural decisions without consulting a qualified professional.</p>
+          </div>
+          <div class="carousel-item">
+            <h3>Model & Data Insights</h3>
+            <p>Our AI is trained for high accuracy on specific datasets like PlantVillage. For best results, use clear, well-lit images focusing on a single leaf against a simple background.</p>
+          </div>
+          <div class="carousel-item">
+            <h3>Image Quality Tips</h3>
+            <p>Ensure the plant leaf is the main subject, well-focused, and fills a good portion of the image. Avoid blurry photos, images with complex backgrounds, or multiple leaves if possible.</p>
+          </div>
+        </div>
+        <div class="carousel-dots"> <!-- Renamed class from testimonial-dots -->
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
         </div>
       </section>
     </main>

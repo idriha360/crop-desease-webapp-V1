@@ -34,19 +34,21 @@
     <main class="main-content-wrapper">
       <div class="top-section-block">
         <nav class="navbar">
-          <div class="navbar-content-limiter">
-            <div class="nav-logo">
-              <img src="assets/logo.png" alt="Crop logo" class="logo-img" />
-              <span>Crop</span>
+            <div class="navbar-content-limiter">
+                <a href="index.html" class="nav-logo-link"> <!-- WRAPPED LOGO IN A LINK -->
+                <div class="nav-logo">
+                    <img src="assets/logo.png" alt="Crop logo" class="logo-img" />
+                    <span>Crop</span>
+                </div>
+                </a>
+                <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li> <!-- Contact is active -->
+                <!-- "Features" link removed -->
+                </ul>
+                <!-- "Sign In" button removed -->
             </div>
-            <ul class="nav-links">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="index.html#howitworks-section">Features</a></li> <!-- Updated link -->
-              <li><a href="contact.html" class="active">Contact</a></li> <!-- Added 'active' class -->
-            </ul>
-            <button class="nav-signin-btn">Sign In</button>
-          </div>
         </nav>
 
         <header class="hero-section">
