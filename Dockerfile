@@ -15,9 +15,7 @@ COPY requirements.txt .
 # -f https://download.pytorch.org/whl/cpu/torch_stable.html:
 #   Crucially, tells pip to ALSO look for packages (especially torch, torchvision)
 #   at this PyTorch CPU-specific wheel index. This is our primary guard against CUDA versions.
-RUN pip install --upgrade --no-cache-dir \
-    -r requirements.txt \
-    -f https://download.pytorch.org/whl/cpu/torch_stable.html
+RUN pip install --upgrade --no-cache-dir -r requirements.txt
 
 # STAGE 2: Final - Copies only necessary artifacts from builder stage
 FROM python:3.12-slim-bookworm

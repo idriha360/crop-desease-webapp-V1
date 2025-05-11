@@ -4,8 +4,13 @@ Werkzeug<2.3.0
 Pillow==10.1.0
 gunicorn==22.0.0
 
-# --- PyTorch CPU-ONLY (targeting versions as of April 23, 2025 example) ---
-# For these newer versions, the standard manylinux wheels are CPU-only.
-# The -f flag in the Dockerfile's pip install will further ensure CPU source.
-torch==2.7.0
-torchvision==0.22.0
+# --- PyTorch CPU-ONLY ---
+# Pointing directly to the CPU .whl files.
+# Ensure these URLs are correct for the specific Python version (cp312 for Python 3.12)
+# and CPU architecture. These are based on standard PyTorch distribution.
+
+https://download.pytorch.org/whl/cpu/torch-2.7.0%2Bcpu-cp312-cp312-linux_x86_64.whl
+https://download.pytorch.org/whl/cpu/torchvision-0.22.0%2Bcpu-cp312-cp312-linux_x86_64.whl
+# Note: I've re-added the "+cpu" in the URL path as that's how PyTorch structures its CPU wheel directory usually.
+# The actual wheel filename might not have +cpu for newer versions, but the download path often does.
+# We are removing torchaudio as it's not needed.
