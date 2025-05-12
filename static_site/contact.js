@@ -1,56 +1,58 @@
 // contact.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-contact-btn');
 
-    if (contactForm && formStatus) {
+    if (contactForm && formStatus && submitBtn) {
         contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault(); // Prevent default HTML form submission
 
-            // Basic client-side validation (browser built-in 'required' handles most)
             if (!contactForm.checkValidity()) {
-                formStatus.textContent = 'Please fill out all required fields.';
+                contactForm.reportValidity(); // Show browser's built-in validation messages
+                formStatus.textContent = 'Please fill out all required fields correctly.';
                 formStatus.style.color = 'red';
-                return; // Stop if form is not valid
+                return;
             }
 
-            // --- Placeholder for actual form submission ---
-            // In a real application, you would send this data to a backend server
-            // using fetch() or XMLHttpRequest.
-            // For this static site, we'll just simulate success.
+            const formData = new FormData(contactForm);
+            const originalButtonText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formStatus.textContent = ''; // Clear previous status
 
-            // You could collect data like this if needed:
-            // const formData = new FormData(contactForm);
-            // const name = formData.get('name');
-            // const email = formData.get('email');
-            // const subject = formData.get('subject');
-            // const message = formData.get('message');
-            // console.log('Form Submitted:', { name, email, subject, message });
-
-
-            // Simulate successful submission
-            formStatus.textContent = 'Thank you for your message! I will get back to you soon.';
-            formStatus.style.color = '#1A4D2E'; // Greenish color from your palette
-
-            // Clear the form fields
-            contactForm.reset();
-
-            // Optional: Disable the button briefly to prevent multiple clicks
-            const submitBtn = document.getElementById('submit-contact-btn');
-            if(submitBtn) {
-                submitBtn.disabled = true;
+            fetch(contactForm.action, { // Uses the action URL from your form tag
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json' // Important for Formspree AJAX
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    return response.json().then(data => {
+                        throw new Error(data.error || 'Oops! There was a problem submitting your form.');
+                    });
+                }
+            })
+            .then(data => {
+                formStatus.textContent = "Thanks for your message! I'll get back to you soon.";
+                formStatus.style.color = '#1A4D2E'; // Your success color
+                contactForm.reset();
+            })
+            .catch(error => {
+                formStatus.textContent = error.message || 'Oops! There was a problem submitting your form. Please try again.';
+                formStatus.style.color = 'red';
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalButtonText;
                 setTimeout(() => {
-                    submitBtn.disabled = false;
-                    // Clear status message after a delay
-                     formStatus.textContent = '';
-                }, 5000); // Clear status message after 5 seconds
-            } else {
-                 // Clear status message after a delay if button not found
-                 setTimeout(() => {
                     formStatus.textContent = '';
-                }, 5000);
-            }
+                }, 7000);
+            });
         });
     }
 });
