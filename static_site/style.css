@@ -513,7 +513,7 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   color: #1A4D2E;
-  margin-top: 40px;
+  margin-top: 100px;
 }
 
 .testimonial-section {
@@ -1192,7 +1192,7 @@ body.about-page-specific-gradient .main-content-wrapper {
 }
 
 .dataset-info-section {
-  padding: 40px 40px 20px; /* Less bottom padding if carousel follows */
+  padding: 0px 40px 20px; /* Less bottom padding if carousel follows */
   text-align: center;
   background-color: transparent; /* Or a very subtle different shade if desired */
   color: #1A4D2E;
