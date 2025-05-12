@@ -7,13 +7,10 @@ This project is a web application that utilizes a PyTorch-based machine learning
 
 ---
 
-**(Optional: Add a Screenshot of the Deployed App Here)**
-<!-- To add a screenshot:
-1. Take a screenshot of your live application.
-2. Add it to your repository (e.g., in an `assets/readme_images/` folder).
-3. Uncomment and update the line below:
+
+
 ![App Screenshot](./assets/readme_images/app_screenshot.png)
--->
+
 
 ---
 
