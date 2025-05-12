@@ -218,7 +218,7 @@ body {
   padding: 0;
   /* margin: 0 auto; REMOVE this to stop perfect centering */
   margin-left: auto;  /* Pushes it towards the right */
-  margin-right: 40px; /* Adjust this value to control distance from the right edge of navbar-content-limiter */
+  margin-right: 0px; /* Adjust this value to control distance from the right edge of navbar-content-limiter */
                       /* Or use a percentage like margin-right: 5%; */
 }
 
