@@ -9,7 +9,7 @@ This project is a web application that utilizes a PyTorch-based machine learning
 
 
 
-![App Screenshot](./assets/readme_images/app_screenshot.png)
+![App Screenshot](static_site/assets/readme_images/app_screenshot.png)
 
 
 ---
